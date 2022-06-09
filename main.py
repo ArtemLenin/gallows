@@ -1,4 +1,8 @@
 import random
+import os
+
+def clear_screen():
+    os.system('cls')
 
 words = ['синхрофазотрон', 'дистрибьюция', 'множество']
 correct_letters = set()
@@ -9,7 +13,15 @@ def show_word():
         print(letter if letter in correct_letters else '_', end=' ')
     print()
 
+def show_gallow():
+    with open(f'gallow_text/gallow_{11 - hearts}.txt', encoding='utf-8') as file:
+        text = file.readlines()
+    for line in text:
+        print(line)
+
+
 def show_game_interface():
+    show_gallow()
     show_word()
     show_wrong_letters()
 
@@ -44,13 +56,14 @@ def check_letter(letter):
 hearts = 11
 word = random.choice(words).lower()
 while hearts > 0:
+    clear_screen()
     show_game_interface()
     user_letter = input("Введите Вашу букву: ")
     letter = user_letter.lower()
     check_letter(letter)
 
     if correct_letters == set(word):
-        show_word()
+        show_game_interface()
         print('Win!')
         break
 else:
