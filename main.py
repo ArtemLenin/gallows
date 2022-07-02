@@ -4,7 +4,7 @@ import os
 def clear_screen():
     os.system('cls')
 
-words = ['синхрофазотрон', 'дистрибьюция', 'множество']
+words = ['синхрофазотрон', 'дистрибьюция', 'множество', 'параллелепипед', 'снегурочка']
 correct_letters = set()
 wrong_letters = set()
 
